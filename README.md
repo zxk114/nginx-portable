@@ -20,6 +20,13 @@ On Ubuntu installing the following packages should provide all the files necessa
 ```
 sudo apt-get install curl build-essential libpcre3-dev libssl-dev
 ```
+On CentOS installing the following packages should provide all the files necessary to build nginx
+```
+yum install gcc-c++
+yum install pcre pcre-devel
+yum install zlib zlib-devel
+yum install openssl openssl-devel
+```
 
 ## Getting started
 1. Clone this repository
