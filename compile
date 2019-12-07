@@ -1,8 +1,19 @@
 #!/bin/bash
 
+function showAvailableNginxVersion() {
+	echo "check available nginx versions:"
+	web=`curl -s https://nginx.org/en/download.html`
+	echo "$web"|grep -o "nginx-[0-9]\+.[0-9]\+.[0-9]\+.tar.gz\"" > nginx.version
+	#echo "$web"|grep -e 'nginx' > nginx.version
+	cat /Users/chench/nginx.version | grep -o "nginx-[0-9]\+.[0-9]\+.[0-9]\+"
+	rm -rf nginx.version
+}
+
 function printUsage() {
 	echo "Usage: $0 <version>"
 	echo "  e.g: $0 1.16.1"
+	echo ""
+	showAvailableNginxVersion
 	echo ""
 }
 
