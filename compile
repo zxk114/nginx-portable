@@ -3,10 +3,10 @@
 function showAvailableNginxVersion() {
 	echo "check available nginx versions:"
 	web=`curl -s https://nginx.org/en/download.html`
-	echo "$web"|grep -o "nginx-[0-9]\+.[0-9]\+.[0-9]\+.tar.gz\"" > nginx.version
+	echo "$web"|grep -o "nginx-[0-9]\+.[0-9]\+.[0-9]\+.tar.gz\"" > /tmp/nginx.version
 	#echo "$web"|grep -e 'nginx' > nginx.version
-	cat nginx.version | grep -o "nginx-[0-9]\+.[0-9]\+.[0-9]\+"
-	rm -rf nginx.version
+	cat /tmp/nginx.version | grep -o "nginx-[0-9]\+.[0-9]\+.[0-9]\+"
+	rm -rf /tmp/nginx.version
 }
 
 function printUsage() {
