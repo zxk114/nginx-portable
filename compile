@@ -65,18 +65,15 @@ echo "Building executable."
 make >> ../../logs/compile.log
 
 # Move bin file into appropriate dir
-mkdir -p $TARGETDIR/$NGINXV
-mkdir -p $TARGETDIR/$NGINXV/logs
-mkdir -p $TARGETDIR/$NGINXV/tmp
-mkdir -p $TARGETDIR/$NGINXV/sbin
+mkdir -p $TARGETDIR/nginx/{sbin,logs}
 
-cp -f objs/nginx $TARGETDIR/$NGINXV/sbin/
-cp -r conf $TARGETDIR/$NGINXV/
-cp -r html $TARGETDIR/$NGINXV/
+cp -f objs/nginx $TARGETDIR/nginx/sbin/
+cp -r conf $TARGETDIR/nginx/
+cp -r html $TARGETDIR/nginx/
 
 cd $TARGETDIR
-tar czf "$NGINXV".tar.gz $NGINXV
-rm -rf $NGINXV 
+tar czf "$NGINXV".tar.gz nginx
+rm -rf nginx
 
 # Remove the temporary directory
 echo "Cleaning up."
